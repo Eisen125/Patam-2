@@ -4,9 +4,9 @@ package main.model.statistics;
 
 public class Circle {
     Point center;
-    double radius;
+    float radius;
 
-    public Circle(Point Center , double radius){
+    public Circle(Point Center , float radius){
         this.center = center;
         this.radius = radius;
     }
