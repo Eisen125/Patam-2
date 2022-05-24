@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class TimeSeries {
 	List<String> name;
 	List<Float[]> values;
+	int timeStep;
 
 	public TimeSeries(String csvFileName) {
 		name = new ArrayList<>();
@@ -23,6 +24,8 @@ public class TimeSeries {
 				s = line.split(",");
 				values.add(toFloat(s));
 			}
+
+			timeStep=values.size();
 		}
 		catch(IOException e){
 			e.printStackTrace();
@@ -47,8 +50,8 @@ public class TimeSeries {
 		return s;
 	}*/
 
-	public Float[] getLine(int timeStep){
-		return (values.get(timeStep));
+	public Float[] getLine(int timeStamp){
+		return (values.get(timeStamp));
 	}
 
 	public float[] getCol(String feature){
@@ -59,4 +62,7 @@ public class TimeSeries {
 		return f;
 	}
 
+	public int getTimeStep() {
+		return timeStep;
+	}
 }
