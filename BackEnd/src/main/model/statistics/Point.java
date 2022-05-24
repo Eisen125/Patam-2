@@ -1,4 +1,4 @@
-package main.model;
+package main.model.statistics;
 
 public class Point {
     public double x;
