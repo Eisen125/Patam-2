@@ -24,12 +24,12 @@ public class TimeSeries {
 				s = line.split(",");
 				values.add(toFloat(s));
 			}
+
 			timeStep=values.size();
 		}
 		catch(IOException e){
 			e.printStackTrace();
 		}
-
 	}
 
 
