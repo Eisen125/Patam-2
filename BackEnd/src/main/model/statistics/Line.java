@@ -1,12 +1,12 @@
 package main.model.statistics;
 
 public class Line {
-	public final double a,b;
-	public Line(double a, double b){
+	public final float a,b;
+	public Line(float a, float b){
 		this.a=a;
 		this.b=b;
 	}
-	public double f(double x){
+	public float f(float x){
 		return a*x+b;
 	}
 

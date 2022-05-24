@@ -5,15 +5,15 @@ import java.util.ArrayList;
 public class MathLib {
 
     //function to return the euclidean distance between two pionts
-    public static double euclideanDist(Point a,Point b){
-        return Math.sqrt(Math.pow(a.x-b.x,2)+Math.pow(a.y-b.y,2));
+    public static float euclideanDist(Point a,Point b){
+        return (float)Math.sqrt(Math.pow(a.x-b.x,2)+Math.pow(a.y-b.y,2));
     }
 
     //Helper method to get a circle defined by 3 points
-    public static Point getCircleCenter(double bx,double by,double cx,double cy){
-        double b = bx * bx + by * by;
-        double c = cx * cx + cy * cy;
-        double d = bx * cy - by * cx;
+    public static Point getCircleCenter(float bx,float by,float cx,float cy){
+        float b = bx * bx + by * by;
+        float c = cx * cx + cy * cy;
+        float d = bx * cy - by * cx;
         Point p = new Point((cy * b - by * c) / (2 * d),(bx * c - cx * b)/(2 * d));
         return p;
     }
@@ -30,10 +30,10 @@ public class MathLib {
     //Function to return a unique circle that intersects 2 points.
     public static Circle circleFrom(Point a , Point b){
         //set the center to be the mid point of a and b
-        Point p = new Point((a.x + b.x) / 2.0 , (a.y + b.y) / 2.0);
+        Point p = new Point((a.x + b.x) / 2 , (a.y + b.y) / 2);
 
         //set the radius to be hallf the distance ab
-        Circle c = new Circle(p , euclideanDist(a , b) / 2.0);
+        Circle c = new Circle(p , euclideanDist(a , b) / 2);
         return c;
     }
 
@@ -48,5 +48,10 @@ public class MathLib {
     }
 
     //Function to return the minimum enclosing circle for n<=3
-
+//    public static Circle mainCircleTrivial(ArrayList<Point> pointArray){
+//        assert pointArray.size()<=3;
+//        if(pointArray.isEmpty()) {
+//
+//        }
+//    }
 }
