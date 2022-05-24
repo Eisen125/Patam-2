@@ -27,7 +27,6 @@ public class TimeSeries {
 		catch(IOException e){
 			e.printStackTrace();
 		}
-
 	}
 
 
@@ -48,8 +47,8 @@ public class TimeSeries {
 		return s;
 	}*/
 
-	public Float[] getLine(int timeStamp){
-		return (values.get(timeStamp));
+	public Float[] getLine(int timeStep){
+		return (values.get(timeStep));
 	}
 
 	public float[] getCol(String feature){

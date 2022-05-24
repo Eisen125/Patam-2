@@ -48,10 +48,28 @@ public class MathLib {
     }
 
     //Function to return the minimum enclosing circle for n<=3
-//    public static Circle mainCircleTrivial(ArrayList<Point> pointArray){
-//        assert pointArray.size()<=3;
-//        if(pointArray.isEmpty()) {
-//
-//        }
-//    }
+    public static Circle minCircleTrivial(ArrayList<Point> pointArray){
+        assert pointArray.size()<=3;
+        if(pointArray.isEmpty()) {
+            return new Circle(new Point(0,0), 0);
+        }
+        else if(pointArray.size() == 1){
+            return new Circle(pointArray.get(0) , 0);
+        }
+        else if(pointArray.size() == 2){
+            return circleFrom(pointArray.get(0) , pointArray.get(1));
+        }
+
+        for(int i=0;i<3;i++){
+            for(int j=i+1;j<3;j++){
+                Circle c = circleFrom(pointArray.get(i) , pointArray.get(j));
+                if(isValidCircle(c,pointArray)){
+                    return c;
+                }
+            }
+        }
+        return circleFrom(pointArray.get(0) , pointArray.get(1) , pointArray.get(2));
+    }
+
+
 }
