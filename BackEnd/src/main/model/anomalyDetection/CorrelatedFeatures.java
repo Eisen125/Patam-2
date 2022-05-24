@@ -1,5 +1,6 @@
 package main.model.anomalyDetection;
 
+import main.model.statistics.Circle;
 import main.model.statistics.Line;
 
 public class CorrelatedFeatures {
