@@ -9,12 +9,12 @@ public class Zscore implements TimeSeriesAnomalyDetector{
    // Point[] points;
     float threshold;
     List<String> notCorrelatedCol;
-    HashMap<String, float> notCorrelatedColThreshold;
+    HashMap<String,Float> notCorrelatedColThreshold;
     TimeSeries ts;
 
     @Override
     public void learnNormal(TimeSeries ts) {
-        notCorrelatedColThreshold= new HashMap<String, float>();
+        notCorrelatedColThreshold= new HashMap<String, Float>();
         this.notCorrelatedCol = new ArrayList<>();
         for(int i=0;i<ts.name.size() ; i++){
             float max = 0;

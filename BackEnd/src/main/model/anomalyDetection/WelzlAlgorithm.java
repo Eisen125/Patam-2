@@ -1,5 +1,6 @@
 package main.model.anomalyDetection;
 
+import static main.model.statistics.MathLib.minCircleTrivial;
 import main.model.statistics.Circle;
 import main.model.statistics.Point;
 import java.util.ArrayList;
@@ -7,7 +8,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Random;
 
-import static main.model.statistics.MathLib.minCircleTrivial;
+
 
 public class WelzlAlgorithm {
 
