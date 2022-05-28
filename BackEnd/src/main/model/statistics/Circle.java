@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream:BackEnd/src/main/model/statistics/Circle.java
 package main.model.statistics;
 
 
