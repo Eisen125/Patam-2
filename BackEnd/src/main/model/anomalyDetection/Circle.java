@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream:BackEnd/src/main/model/statistics/Circle.java
-package main.model.statistics;
-
-
-
+package main.model.anomalyDetection;
 public class Circle {
     Point center;
     float radius;

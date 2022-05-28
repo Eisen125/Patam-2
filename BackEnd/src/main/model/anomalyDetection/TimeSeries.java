@@ -41,14 +41,13 @@ public class TimeSeries {
 		return f;
 	}
 
-	/*
-	public static String[] toString(float[] f){
+	public static String[] toString(float[] f) {
 		String[] s = new String[f.length];
-		for(int i = 0 ;i<f.length;i++){
+		for (int i = 0; i < f.length; i++) {
 			s[i] = Float.toString(f[i]);
 		}
 		return s;
-	}*/
+	}
 
 	public Float[] getLine(int timeStamp){
 		return (values.get(timeStamp));
@@ -60,6 +59,10 @@ public class TimeSeries {
 			f[i] = values.get(i)[name.indexOf(feature)];
 		}
 		return f;
+	}
+
+	public float[] getCol(Integer feature){
+		return getCol(Integer.toString(feature));
 	}
 
 	public int getTimeStep() {
