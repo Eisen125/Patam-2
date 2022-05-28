@@ -1,4 +1,4 @@
-package main.model.statistics;
+package main.model.anomalyDetection;
 
 public class Point {
     public float x;
