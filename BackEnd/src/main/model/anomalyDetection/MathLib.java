@@ -1,11 +1,11 @@
-package main.model.statistics;
+package main.model.anomalyDetection;
 
 import java.util.ArrayList;
 
 public class MathLib {
 
     //function to return the euclidean distance between two pionts
-    public static float euclideanDist(Point a,Point b){
+    public static float euclideanDist(Point a, Point b){
         return (float)Math.sqrt(Math.pow(a.x-b.x,2)+Math.pow(a.y-b.y,2));
     }
 
