@@ -1,20 +1,20 @@
 package main.model.anomalyDetection;
 
-import main.model.statistics.StatLib;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-public class Zscore implements TimeSeriesAnomalyDetector{
+public class Zscore implements TimeSeriesAnomalyDetector {
    // Point[] points;
     float threshold;
     List<String> notCorrelatedCol;
-    HashMap<String, float> notCorrelatedColThreshold;
+    HashMap<String,Float> thresholdMap;
     TimeSeries ts;
 
     @Override
     public void learnNormal(TimeSeries ts) {
-        notCorrelatedColThreshold= new HashMap<String, float>();
+        thresholdMap=new HashMap<>();
+       /* notCorrelatedColThreshold= new HashMap<String, Float>();
         this.notCorrelatedCol = new ArrayList<>();
         for(int i=0;i<ts.name.size() ; i++){
             float max = 0;
@@ -29,9 +29,18 @@ public class Zscore implements TimeSeriesAnomalyDetector{
             if(max < threshold){
                 notCorrelatedCol.add(ts.name.get(i));
             }
-        }
 
-        notCorrelatedCol.forEach(p-> findMaxThreshold(p, ts));
+
+        }*/
+
+        //notCorrelatedCol.forEach(p-> findMaxThreshold(p);
+
+        ts.values.forEach(fs->{
+            float maxThreshold=findMaxThreshold(FloatTofloat(fs));
+            String header= ts.name.get(ts.values.indexOf(fs));
+            if(!thresholdMap.containsKey(header))
+                thresholdMap.put(header, maxThreshold);
+        });
     }
 
     @Override
@@ -39,14 +48,29 @@ public class Zscore implements TimeSeriesAnomalyDetector{
         return null;
     }
 
+
     public void setThreshold(float threshold) {
         this.threshold = threshold;
     }
 
-    public void findMaxThreshold(String col, TimeSeries ts){
-
-        for (int i = 0; i < ts.timeStep ; i++) {
-
+    public static float findMaxThreshold(float[] col){
+        float maxThreshold=0, tmpMaxThreshold=0, avg=0, si=0 ;
+        for (int i = 0; i < col.length ; i++) {
+            float[] subCol= Arrays.copyOfRange(col, 0,i-1);
+            avg= StatLib.avg(subCol);
+            si= (float) Math.sqrt(StatLib.var(subCol));
+            tmpMaxThreshold=Math.abs((col[i]-avg)/si);
+            if(tmpMaxThreshold>maxThreshold){
+                maxThreshold=tmpMaxThreshold;
+                tmpMaxThreshold=0;
+            }
         }
+        return maxThreshold;
+    }
+
+    public float[] FloatTofloat(Float[] col){
+        float[] newCol=new float[col.length];
+        for (int i = 0; i < col.length; i++) {newCol[i]=col[i]; }
+        return newCol;
     }
 }

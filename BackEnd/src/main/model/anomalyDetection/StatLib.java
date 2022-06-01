@@ -1,4 +1,7 @@
-package main.model.statistics;
+package main.model.anomalyDetection;
+
+import main.model.anomalyDetection.Line;
+import main.model.anomalyDetection.Point;
 
 public class StatLib {
 
@@ -83,6 +86,14 @@ public class StatLib {
 			value *= -1;
 		}
 		return value;
+	}
+
+	public static Point[] arrayOfPoints(float[] x , float[] y){
+		Point[] pointsArray = new Point[x.length];
+		for(int i=0;i<pointsArray.length;i++){
+			pointsArray[i] = new Point(x[i] , y[i]);
+		}
+		return pointsArray;
 	}
 	
 }

@@ -1,13 +1,13 @@
 package main.model.anomalyDetection;
 
-import main.model.statistics.Circle;
-import main.model.statistics.Point;
+import static main.model.anomalyDetection.MathLib.minCircleTrivial;
+
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 import java.util.Random;
 
-import static main.model.statistics.MathLib.minCircleTrivial;
+
 
 public class WelzlAlgorithm {
 
@@ -35,14 +35,5 @@ public class WelzlAlgorithm {
         return welzlHelper(pCopy,array, pCopy.size());
     }
 
-    public static void main(String[] args) {
-        ArrayList<Point> p = new ArrayList<Point>();
-        p.add(new Point(0,0));
-        p.add(new Point(0,1));
-//        p.add(new Point(1,0));
-
-        Circle mec = welzl(p);
-        System.out.println("center: {" + mec.getCenter().x + "," + mec.getCenter().y + "} Radius = " + mec.getRadius());
-    }
 }
 
